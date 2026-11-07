@@ -126,4 +126,10 @@ def search(q: str, top_k: int = 10):
                 results["documents"][0],
                 results["distances"][0],
             )
+        ]
+        logger.info("Search completed: returned %d results", len(response))
+        return response
+    except Exception:
+        logger.exception("Search request failed")
+        raise
 
